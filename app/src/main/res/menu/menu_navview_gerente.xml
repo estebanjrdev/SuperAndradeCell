@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_stock"
+            android:icon="@drawable/ic_store_gris_24"
+            android:title="Stock"/>
+        <item
+            android:id="@+id/menu_ventas"
+            android:icon="@drawable/ic_monetization_on_24"
+            android:title="Ventas"/>
+        <item
+            android:id="@+id/menu_marcas"
+            android:icon="@drawable/ic_spa_24"
+            android:title="Marcas"/>
+        <item
+            android:id="@+id/menu_busqueda"
+            android:icon="@drawable/ic_qr_code_24"
+            android:title="Busqueda QR"/>
+        <item
+            android:id="@+id/menu_ingresados"
+            android:icon="@drawable/ic_arrow_forward_24"
+            android:title="Consulta Ingresados"/>
+        <item
+            android:id="@+id/menu_salidas"
+            android:icon="@drawable/ic_arrow_back_24"
+            android:title="Consulta Salidas"/>
+        <item
+            android:id="@+id/menu_registro"
+            android:icon="@drawable/ic_point_24"
+            android:title="Registro Mercaderia"/>
+        <item
+            android:id="@+id/menu_usuarios"
+            android:icon="@drawable/ic_group_24"
+            android:title="Usuarios"/>
+
+    </group>
+</menu>
