@@ -1,6 +1,7 @@
 package com.servicios.andrade.view;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,17 +13,34 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.servicios.andrade.R;
+import com.servicios.andrade.model.Usuario;
 import com.servicios.andrade.view.fragments.Fragment_Inicio;
 import com.servicios.andrade.view.fragments.Fragment_Register;
 
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -31,7 +49,6 @@ public class InicioActivity extends AppCompatActivity {
     private NavigationView navView;
     boolean fragmentTransaction = false;
     Fragment fragment = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +71,7 @@ public class InicioActivity extends AppCompatActivity {
                                 fragment = new Fragment_Inicio();
                                 fragmentTransaction = true;
                                 break;
-                            case R.id.menu_registro:
+                            case R.id.menu_usuarios:
                                 fragment = new Fragment_Register();
                                 fragmentTransaction = true;
                                 break;
@@ -75,7 +92,6 @@ public class InicioActivity extends AppCompatActivity {
 
                 });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
