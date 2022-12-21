@@ -2,7 +2,7 @@
 buildscript {
     repositories {
         //google()
-        //mavenCentral()
+        mavenCentral()
         maven {
             url  'https://nexus.xebialabs.com/nexus/content/repositories/public/'
             allowInsecureProtocol = true
@@ -59,7 +59,7 @@ buildscript {
 allprojects {
     repositories {
         //google()
-        //mavenCentral()
+        mavenCentral()
        // jcenter() // Warning: this repository is going to shut down soon
         maven {
             url  'https://nexus.xebialabs.com/nexus/content/repositories/public/'

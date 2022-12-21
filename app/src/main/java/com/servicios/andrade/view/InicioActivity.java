@@ -31,6 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.servicios.andrade.R;
 import com.servicios.andrade.model.Usuario;
 import com.servicios.andrade.view.fragments.Fragment_Inicio;
+import com.servicios.andrade.view.fragments.Fragment_Mercaderia;
 import com.servicios.andrade.view.fragments.Fragment_Register;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -73,6 +74,10 @@ public class InicioActivity extends AppCompatActivity {
                                 break;
                             case R.id.menu_usuarios:
                                 fragment = new Fragment_Register();
+                                fragmentTransaction = true;
+                                break;
+                            case R.id.menu_registro:
+                                fragment = new Fragment_Mercaderia();
                                 fragmentTransaction = true;
                                 break;
                         }
