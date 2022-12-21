@@ -32,7 +32,6 @@ public class Fragment_Mercaderia extends Fragment {
     public Fragment_Mercaderia() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,7 +58,6 @@ public class Fragment_Mercaderia extends Fragment {
                 .setCaptureActivity(Captura.class)
                 .initiateScan();
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);

@@ -163,13 +163,14 @@
                     android:paddingLeft="15dp"
                     android:singleLine="true"
                     android:textColor="#393838" />
+
                 <ImageButton
                     android:id="@+id/btnQR"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="15dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_qr_code_24"/>
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_qr_code_24" />
             </LinearLayout>
 
             <Spinner
