@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -33,7 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Fragment_Register extends Fragment {
-    ProgressDialog progressDialog;
+    ProgressBar progres;
     EditText txtNombre, txtUsuario, txtPhone, txtCorreo, txtPassword, txtCedula;
     Button btnRegister;
     Spinner spinner;
@@ -51,6 +53,7 @@ public class Fragment_Register extends Fragment {
         spinner = vista.findViewById(R.id.spinner);
         String[] valores = {"Seleccionar Rol", "Gerente", "Empleado"};
         spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, valores));
+        progres = vista.findViewById(R.id.register_progress);
         txtNombre = vista.findViewById(R.id.nombre_apellido);
         txtUsuario = vista.findViewById(R.id.user);
         txtCedula = vista.findViewById(R.id.cedula);
@@ -58,10 +61,6 @@ public class Fragment_Register extends Fragment {
         txtCorreo = vista.findViewById(R.id.correo);
         txtPassword = vista.findViewById(R.id.password);
         btnRegister = vista.findViewById(R.id.signin_button);
-        progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Guardando...");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -76,27 +75,27 @@ public class Fragment_Register extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final   String  strNombre = txtNombre.getText().toString();
-                final  String  strUsername = txtUsuario.getText().toString();
-                final  String  strPhone = txtPhone.getText().toString();
-                final String  strCorreo = txtCorreo.getText().toString();
+                final String strNombre = txtNombre.getText().toString();
+                final String strUsername = txtUsuario.getText().toString();
+                final String strPhone = txtPhone.getText().toString();
+                final String strCorreo = txtCorreo.getText().toString();
                 final String strPassword = txtPassword.getText().toString();
                 final String strCedula = txtCedula.getText().toString();
-                if(strNombre.equals("") || strUsername.equals("") || strPhone.equals("") || strCorreo.equals("") || strPassword.equals("")){
+                if (strNombre.equals("") || strUsername.equals("") || strPhone.equals("") || strCorreo.equals("") || strPassword.equals("")) {
                     Toast.makeText(getContext(), "No puede dejar Campos Vacios", Toast.LENGTH_SHORT).show();
-                }else if(!isValidUsername(strUsername)){
+                } else if (!isValidUsername(strUsername)) {
                     Toast.makeText(getContext(), "Usuario incorrecto", Toast.LENGTH_SHORT).show();
-                }else if(!isValidPhone(strPhone)){
+                } else if (!isValidPhone(strPhone)) {
                     Toast.makeText(getContext(), "Teléfono incorrecto", Toast.LENGTH_SHORT).show();
-                }else if (!isValidEmail(strCorreo)){
+                } else if (!isValidEmail(strCorreo)) {
                     Toast.makeText(getContext(), "Email incorrecto", Toast.LENGTH_SHORT).show();
-                }else if(!isValidPassword(strPassword)){
+                } else if (!isValidPassword(strPassword)) {
                     Toast.makeText(getContext(), "Contraseña debe tener mínimo 6 caracteres", Toast.LENGTH_SHORT).show();
-                }else if(!isValidRoll(spinnerSelected)){
+                } else if (!isValidRoll(spinnerSelected)) {
                     Toast.makeText(getContext(), "Debe seleccionar el rol", Toast.LENGTH_SHORT).show();
-                }else{
-                  progressDialog.create();
-                    insertarUsuario("http://andrade.125mb.com/signup.php",strNombre,strUsername,strPhone,strCorreo,strCedula,numRoll(spinnerSelected),strPassword);
+                } else {
+                    progres.setVisibility(View.VISIBLE);
+                    insertarUsuario("http://andrade.125mb.com/signup.php", strNombre, strUsername, strPhone, strCorreo, strCedula, numRoll(spinnerSelected), strPassword);
 
                 }
             }
@@ -109,7 +108,7 @@ public class Fragment_Register extends Fragment {
             @Override
             public void onResponse(String s) {
                 if (s.equals("Sign Up Success")) {
-                   // progressDialog.dismiss();
+                    progres.setVisibility(View.GONE);
                     txtNombre.setText("");
                     txtCedula.setText("");
                     txtCorreo.setText("");
@@ -118,7 +117,8 @@ public class Fragment_Register extends Fragment {
                     txtUsuario.setText("");
                     Toast.makeText(getContext(), "Registro exitoso", Toast.LENGTH_SHORT).show();
                 } else {
-                   System.out.println(s);
+                    System.out.println(s);
+                    progres.setVisibility(View.GONE);
                     Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -145,7 +145,7 @@ public class Fragment_Register extends Fragment {
                         DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-       // VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(sr);
+        // VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(sr);
         RequestQueue rq = Volley.newRequestQueue(getContext());
         rq.add(sr);
     }
@@ -168,14 +168,16 @@ public class Fragment_Register extends Fragment {
     private boolean isValidPhone(String phone) {
         return phone.length() == 8;
     }
+
     private boolean isValidRoll(String roll) {
         return !roll.equals("Seleccionar Rol");
     }
+
     private String numRoll(String roll) {
-       if (roll.equals("Gerente")){
-           return "1";
-       }else {
-           return "2";
-       }
+        if (roll.equals("Gerente")) {
+            return "1";
+        } else {
+            return "2";
+        }
     }
 }

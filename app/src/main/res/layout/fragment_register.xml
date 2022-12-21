@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:background="@color/color_primary">
+    android:background="@color/color_primary"
+    android:gravity="center_horizontal">
+
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="20dp"
+        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/login_form"
@@ -15,125 +24,125 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/color_primary">
+            android:background="@color/color_primary"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imgStore"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/ic_person_add_24"/>
+            <ImageView
+                android:id="@+id/imgStore"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_person_add_24" />
 
-    <EditText
-        android:id="@+id/nombre_apellido"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Nombre y Apellidos"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/nombre_apellido"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Nombre y Apellidos"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="#393838" />
 
-    <EditText
-        android:id="@+id/user"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Usuario"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Usuario"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="#393838" />
 
-    <EditText
-        android:id="@+id/cedula"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Cedula"
-        android:inputType="number"
-        android:maxLength="11"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/cedula"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Cedula"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="#393838" />
 
-    <EditText
-        android:id="@+id/correo"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Correo"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/correo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Correo"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="#393838" />
 
-    <EditText
-        android:id="@+id/celular"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Celular"
-        android:inputType="number"
-        android:maxLength="8"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/celular"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Celular"
+                android:inputType="number"
+                android:maxLength="8"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:textColor="#393838" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        android:textColor="#393838"/>
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:textColor="#393838" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/edittext"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"/>
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittext" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signin_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/boton_login"
-        android:text="Registrar"
-        android:textColor="#FFFFFF"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signin_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/boton_login"
+                android:text="Registrar Usuario"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
